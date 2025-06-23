@@ -9,7 +9,7 @@
 
 /* HEADER CONTENEDOR */
 .header-contenedor {
-  max-width: 94vw; /* Usamos 94% del ancho de la ventana */
+  max-width: 900px; /* Usamos 94% del ancho de la ventana */
   margin: 0 auto;
   display: flex;
   align-items: center; /* Alineamos los elementos verticalmente */

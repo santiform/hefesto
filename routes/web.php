@@ -6,8 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InformeController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,6 +37,6 @@ Route::middleware(['auth', 'role:operador'])
     ->name('operador.')
     ->group(function () {
         Route::get('/', [InformeController::class, 'operadorIndex'])->name('index');
-        Route::get('/informes/crear', [InformeController::class, 'create'])->name('informes.create');
+        Route::get('/nuevo-informe', [InformeController::class, 'nuevoInforme'])->name('nuevo.informe');
         Route::get('/mis-informes', [InformeController::class, 'misInformes'])->name('informes.mios');
     });

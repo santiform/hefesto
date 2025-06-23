@@ -19,15 +19,15 @@ class InformeController extends Controller
     }
 
     // Método para crear informe (operario)
-    public function create()
+    public function nuevoInforme()
     {
-        return view('operario.create_informe'); // Vista para crear informes
+        return view('operador.nuevo_informe'); // Vista para crear informes
     }
 
     // Método para listar informes propios (operario)
     public function misInformes()
     {
         // Acá podés traer los informes del usuario y pasarlos a la vista
-        return view('operario.mis_informes');
+        return view('operador.mis_informes');
     }
 }

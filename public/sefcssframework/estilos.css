@@ -160,6 +160,19 @@ body {
 
 
 
+.center {
+    display: flex;
+    justify-content: center;   /* centra horizontalmente */
+    align-items: center;       /* centra verticalmente */
+    flex-direction: column;    /* para que los elementos se apilen verticalmente */
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
 
 
 /* -------------------------------------- */
