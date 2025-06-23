@@ -49,6 +49,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 18px;
+    margin-block: 0.3rem;
 }
 
 .boton i {
@@ -158,8 +159,6 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-
-
 .center {
     display: flex;
     justify-content: center;   /* centra horizontalmente */
@@ -201,6 +200,37 @@ a {
     width: 50px;
     height: 50px;
     animation: spin 1s linear infinite;
+}
+
+h2 {
+    color: var(--color-boton);
+}
+
+.botones-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* separa cada botón verticalmente */
+}
+
+input {
+    padding-block: 0.6rem;
+    padding-inline: 1.3rem;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid ;
+}
+
+input:focus {
+    outline: none !important;
+    border: 2px solid var(--color-boton)!important;
+}
+
+.checkbox-div {
+    margin-block: 1.8rem;
+}
+
+.input-div {
+    margin-block: 2.3rem;
 }
 
 @keyframes spin {

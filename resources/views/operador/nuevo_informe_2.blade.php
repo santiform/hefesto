@@ -6,14 +6,15 @@
 
         <h2>NUEVO INFORME</h2>
     
-        <b>Seleccioná un edificio:</b> <br>
+        <b>Seleccioná una familia:</b> <br>
 
-        @foreach ($edificios as $edificio)
-            <form method="POST" action="{{ route('operador.nuevo.informe.2') }}" style="display:inline;">
+        @foreach ($familias as $familia)
+            <form method="POST" action="{{ route('operador.nuevo.informe.3') }}" style="display:inline;">
                 @csrf
                 <input type="hidden" name="edificio" value="{{ $edificio }}">
+                <input type="hidden" name="familia" value="{{ $familia }}">
                 <button type="submit" class="boton" style="width: 230px">
-                    <i class="fa-solid fa-arrow-right"></i> {{ $edificio }} <i class="fa-solid fa-arrow-left"></i>
+                    <i class="fa-solid fa-arrow-right"></i> {{ $familia }} <i class="fa-solid fa-arrow-left"></i>
                 </button>
             </form>
         @endforeach
