@@ -225,12 +225,16 @@ input:focus {
     border: 2px solid var(--color-boton)!important;
 }
 
+label {
+    margin-right: 0.6rem;
+}
+
 .checkbox-div {
-    margin-block: 1.8rem;
+    margin-block: 2.3rem;
 }
 
 .input-div {
-    margin-block: 2.3rem;
+    margin-block: 3rem;
 }
 
 @keyframes spin {

@@ -41,5 +41,6 @@ Route::middleware(['auth', 'role:operador'])
         Route::post('/nuevo-informe/2', [InformeController::class, 'nuevoInforme2'])->name('nuevo.informe.2');
         Route::post('/nuevo-informe/3', [InformeController::class, 'nuevoInforme3'])->name('nuevo.informe.3');
         Route::post('/nuevo-informe/4', [InformeController::class, 'nuevoInforme4'])->name('nuevo.informe.4');
+        Route::post('/nuevo-informe/5', [InformeController::class, 'nuevoInforme5'])->name('nuevo.informe.5');
         Route::get('/mis-informes', [InformeController::class, 'misInformes'])->name('informes.mios');
     });

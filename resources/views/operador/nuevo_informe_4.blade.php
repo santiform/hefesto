@@ -5,8 +5,14 @@
     <div id="columna-1" class="tarjeta center">
 
         <h2>NUEVO INFORME</h2>
-    
-<form action="{{ route('operador.nuevo.informe.4') }}" method="POST">
+
+        <p><b>Edificio:</b> {{$edificio}} | <b>Familia:</b> {{$familia}}</p>
+
+        <p><b>Equipo:</b> {{$equipo->ubicacion}}</p>
+
+    <form id="formInforme" action="{{ route('operador.nuevo.informe.5') }}" method="POST">
+        <input type="hidden" name="equipo" value="{{ $equipo->id }}">
+    <hr>
     @csrf
 
     {{-- Checkbox booleanos --}}
@@ -51,6 +57,8 @@
         ];
     @endphp
 
+    <br><hr><br>
+
     @foreach ($numericos as $campo => $label)
         <div class="input-div">
             <label for="{{ $campo }}">{{ $label }}</label>
@@ -60,12 +68,11 @@
                 name="{{ $campo }}"
                 id="{{ $campo }}"
                 value="{{ old($campo) }}"
-                placeholder="{{ $label }}"
             >
         </div>
     @endforeach
 
-    <div class="center" ><button class="boton" type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar informe</button></div>
+    <div class="center" ><button type="submit" onclick="abrirModalInforme(event)" class="boton"><i class="fa-solid fa-paper-plane"></i> Enviar informe</button></div>
 </form>
 
 

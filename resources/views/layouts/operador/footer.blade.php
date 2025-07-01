@@ -26,47 +26,85 @@
   </div>
 </div>
 
+<!-- Modal para enviar informe -->
+<div id="modal-informe" class="modal" style="display:none;">
+  <div class="modal-contenido">
+    <i class="fa-solid fa-paper-plane"></i>
+    <h2>¿Enviar informe?</h2>
+    <p>Se guardará en la base de datos.</p>
+    <div class="modal-acciones">
+      <button type="button" class="btn-confirmar" onclick="confirmarEnviarInforme()">Sí, enviar</button>
+      <button type="button" class="btn-cancelar" onclick="cerrarModalInforme()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
 <!-- Form oculto para logout -->
 <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display:none;">
     @csrf
 </form>
-
-        
 <script>
-  const toggleBtn = document.getElementById('toggleMenu');
-  const menu = document.querySelector('.menu');
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.getElementById('toggleMenu');
+    const menu = document.querySelector('.menu');
 
-  toggleBtn.addEventListener('click', () => {
-    menu.classList.toggle('mostrar');
-  });
+    if (toggleBtn && menu) {
+      toggleBtn.addEventListener('click', () => {
+        menu.classList.toggle('mostrar');
+      });
+    }
 
-  // Funciones para modal de eliminar
-    function abrirModalEliminar() {
+    // MODAL: ELIMINAR
+    window.abrirModalEliminar = function () {
       document.getElementById('modal-confirmacion').style.display = 'flex';
-    }
-    function cerrarModalEliminar() {
+    };
+
+    window.cerrarModalEliminar = function () {
       document.getElementById('modal-confirmacion').style.display = 'none';
-    }
-    function confirmarEliminar() {
+    };
+
+    window.confirmarEliminar = function () {
       cerrarModalEliminar();
-      alert('Elemento eliminado'); // acá va la lógica real para eliminar
-    }
+      alert('Elemento eliminado'); // Acá va la lógica real para eliminar
+    };
 
-    // Funciones para modal de logout
-    function abrirModalLogout(event) {
-      event.preventDefault(); // para evitar navegación al hacer click en el <a>
+    // MODAL: LOGOUT
+    window.abrirModalLogout = function (event) {
+      event.preventDefault();
       document.getElementById('modal-logout').style.display = 'flex';
-    }
-    function cerrarModalLogout() {
+    };
+
+    window.cerrarModalLogout = function () {
       document.getElementById('modal-logout').style.display = 'none';
-    }
-    function confirmarLogout() {
+    };
+
+    window.confirmarLogout = function () {
       document.getElementById('logoutForm').submit();
-    }
+    };
 
+    // MODAL: ENVIAR INFORME
+    let formAConfirmar = null;
 
+    window.abrirModalInforme = function (event) {
+      event.preventDefault(); // Previene envío inmediato
+      formAConfirmar = event.target.closest('form');
+      document.getElementById('modal-informe').style.display = 'flex';
+    };
+
+    window.cerrarModalInforme = function () {
+      document.getElementById('modal-informe').style.display = 'none';
+      formAConfirmar = null;
+    };
+
+    window.confirmarEnviarInforme = function () {
+      document.getElementById('modal-informe').style.display = 'none';
+      if (formAConfirmar) {
+        formAConfirmar.submit();
+      }
+    };
+  });
 </script>
-
 
 </body>
 </html>

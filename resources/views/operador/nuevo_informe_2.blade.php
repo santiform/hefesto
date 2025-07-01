@@ -4,9 +4,11 @@
 <div class="columnas" style="max-width: 900px; margin: 0 auto;">
     <div id="columna-1" class="tarjeta center">
 
-        <h2>NUEVO INFORME</h2>
-    
-        <b>Seleccioná una familia:</b> <br>
+        <h2>NUEVO INFORME</h2>    
+
+        <p><b>Edificio:</b> {{$edificio}}</p>
+
+        <p><b>Seleccioná una familia:</b> </p>
 
         @foreach ($familias as $familia)
             <form method="POST" action="{{ route('operador.nuevo.informe.3') }}" style="display:inline;">

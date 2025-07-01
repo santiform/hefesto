@@ -5,6 +5,8 @@
     <div id="columna-1" class="tarjeta center">
 
         <h2>NUEVO INFORME</h2>
+
+        <p><b>Edificio:</b> {{$edificio}} | <b>Familia:</b> {{$familia}}</p>    
     
         <b>Seleccioná un equipo:</b> <br>
 
@@ -12,17 +14,16 @@
 
         <div id="listaEquipos">
             <div class="botones-columna">
-              @foreach ($equipos as $equipo)
-                <form method="POST" action="{{ route('operador.nuevo.informe.4') }}" class="equipo-item" style="display:block; margin-bottom:10px;">
-                  @csrf
-                  <input type="hidden" name="edificio" value="{{ $edificio }}">
-                  <input type="hidden" name="familia" value="{{ $familia }}">
-                  <input type="hidden" name="equipo" value="{{ $equipo }}">
-                  <button type="submit" class="boton" style="width: 300px">
-                      <i class="fa-solid fa-arrow-right"></i> {{ $equipo }} <i class="fa-solid fa-arrow-left"></i>
-                  </button>
-                </form>
-              @endforeach
+                @foreach ($equipos as $equipo)
+                    <form method="POST" action="{{ route('operador.nuevo.informe.4') }}" class="equipo-item" style="display:block; margin-bottom:10px;">
+                      @csrf
+                      <!-- El value debe ser el id -->
+                      <input type="hidden" name="equipo" value="{{ $equipo->id }}">
+                      <button type="submit" class="boton" style="width: 300px">
+                          <i class="fa-solid fa-arrow-right"></i> {{ $equipo->ubicacion }} <i class="fa-solid fa-arrow-left"></i>
+                      </button>
+                    </form>
+                @endforeach
             </div>
         </div>
 
