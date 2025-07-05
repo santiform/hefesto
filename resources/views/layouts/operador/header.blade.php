@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="{{ asset('sefcssframework/estilos.css') }}">
     <link rel="stylesheet" href="{{ asset('sefcssframework/header.css') }}">
 
+    <style>
+        .header-contenedor {
+            max-width: 880px; /* Usamos 94% del ancho de la ventana */
+        }
+    </style>
+
 </head>
 <body>
 
@@ -30,6 +36,8 @@
 
 
         <nav class="menu">
+
+            <a href="{{ route('operador.index') }}"><i class="fa-solid fa-house"></i> Inicio</a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
                 @csrf

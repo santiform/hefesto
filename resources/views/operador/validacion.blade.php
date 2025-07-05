@@ -8,6 +8,10 @@
         <p>{{$validacion}}</p>
     </div>
 
+    <a href="{{ route('operador.nuevo.informe') }}" class="boton">
+        <i class="fa-regular fa-square-plus"></i> Nuevo informe
+    </a>
+
     </div>
 </div>
 

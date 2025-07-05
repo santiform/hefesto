@@ -28,7 +28,7 @@ Route::middleware(['auth', 'role:admin'])
     ->name('admin.')
     ->group(function () {
         Route::get('/', [InformeController::class, 'adminIndex'])->name('index');
-        // Otras rutas exclusivas de admin acá
+        Route::get('/informes/{id}', [InformeController::class, 'show'])->name('informes.show');
     });
 
 // Rutas para usuarios OPERADOR

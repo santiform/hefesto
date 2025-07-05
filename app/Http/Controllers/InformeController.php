@@ -11,13 +11,35 @@ class InformeController extends Controller
     // Método para panel admin
     public function adminIndex()
     {
-        return view('admin.index');  // Asegurate de tener esta vista
+        $informes = DB::table('informes')
+        ->join('equipos', 'informes.id_equipo', '=', 'equipos.id')
+         ->select(
+            'informes.*',
+            'equipos.familia',
+            'equipos.edificio',
+            'equipos.ubicacion'
+        )
+        ->orderBy('informes.created_at', 'desc') // <-- esta línea ordena por fecha, más reciente arriba
+        ->get();
+
+        return view('admin.index', compact('informes'));
     }
 
     // Método para panel operario
     public function operadorIndex()
     {
         return view('operador.index');  // Asegurate de tener esta vista
+    }
+
+    public function show($id)
+    {
+        $informe = DB::table('informes')
+            ->join('equipos', 'informes.id_equipo', '=', 'equipos.id')
+            ->select('informes.*', 'equipos.familia', 'equipos.edificio', 'equipos.ubicacion')
+            ->where('informes.id', $id)
+            ->first();
+
+        return view('admin.show', compact('informe'));
     }
 
 

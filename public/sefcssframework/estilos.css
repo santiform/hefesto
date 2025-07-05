@@ -29,7 +29,7 @@ body {
 }
 
 .container {
-    width: 95%;
+    width: 97%;
     margin: 0 auto;
     padding-top: 10px;
     padding-bottom: 15px;
@@ -157,6 +157,7 @@ body {
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3.5rem!important;
 }
 
 .center {
@@ -190,6 +191,15 @@ a {
     flex: 1 1 calc(33.33% - 20px); /* Por defecto tres columnas */
     box-sizing: border-box;
     padding: 20px;
+}
+
+.borde {
+    border: 2px solid var(--color-principal); /* o cualquier color */
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1); /* sombra suave gris */
+    padding: 1.5rem;
+    background-color: white;
+    transition: box-shadow 0.3s, transform 0.2s;
 }
 
 /* Spinner */
@@ -241,6 +251,82 @@ label {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse; /* Fundamental para que bordes se comporten bien */
+    color: var(--color-texto);
+    font-size: 0.95rem;
+}
+
+.responsive-table thead {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+.responsive-table th, .responsive-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ccc; /* Línea horizontal */
+}
+
+.responsive-table tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.responsive-table tbody tr:hover {
+    background-color: #fff6f6;
+}
+
+
+/* Botones estilo unificado */
+.responsive-table a.btn,
+.responsive-table button.btn {
+    padding: 7px 13px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 6px;
+    display: inline-block;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    font-family: inherit;
+    line-height: normal;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.btn-primary,
+.btn-warning,
+.btn-danger {
+    background-color: var(--color-boton);
+    box-shadow: none;
+    opacity: 1;
+    border: 1px solid transparent;
+    color: white;
+}
+
+.btn-primary:hover,
+.btn-warning:hover,
+.btn-danger:hover {
+    color: var(--color-boton);
+    background-color: white;
+    border: 1px solid var(--color-boton);
+}
+
+
 
 /* -------------------------------------- */
 /* 5. Responsividad                      */
